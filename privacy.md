@@ -7,9 +7,6 @@ title: Privacy
 
 **Ultimo aggiornamento**: 18 settembre 2026
 
-> Da pubblicare a un indirizzo pubblico e stabile: lo chiedono Google Play, App Store e Apple
-> dentro la schermata di acquisto. I campi `rothsthegame@gmail.com` sono gli unici che mancano.
-
 ## Chi tratta i dati
 
 **Titolare del trattamento**: Robert Crivat Florian (persona fisica)
