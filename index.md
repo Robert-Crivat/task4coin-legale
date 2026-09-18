@@ -7,3 +7,4 @@ title: Kid Job
 
 - [Informativa privacy](privacy.html)
 - [Termini di servizio](termini.html)
+- [Supporto](supporto.html)
