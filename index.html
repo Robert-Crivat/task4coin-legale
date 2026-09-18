@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task4Coin · i lavoretti di casa diventano paghetta</title>
+<meta name="description" content="App per famiglie: i genitori creano missioni con un premio in coin, i bambini le completano e imparano il valore del lavoro e del risparmio.">
+<meta property="og:title" content="Task4Coin">
+<meta property="og:description" content="I lavoretti di casa diventano paghetta. Educazione finanziaria per bambini, in famiglia.">
+<meta property="og:image" content="store/feature-graphic-1024x500.png">
+<meta name="theme-color" content="#FFFDF8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="immagini/icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stile.css">
+</head>
+<body>
+
+<!-- Icone dell'app (mobile/src/components/icons): stesse forme, stesso tratto, in linea per non dipendere da un file esterno. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-coin" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="24" cy="25.5" r="20" fill="#E89B00"/><circle cx="24" cy="22.5" r="20" fill="#FFC93C"/><circle cx="24" cy="22.5" r="14" fill="#FFDA6B" stroke="#E89B00" stroke-width="2.2"/><circle cx="19" cy="21" r="2.1" fill="#2D2A4A" stroke="none"/><circle cx="29" cy="21" r="2.1" fill="#2D2A4A" stroke="none"/><path d="M18.8 26.3Q24 30.8 29.2 26.3" stroke-width="2.2"/></g></symbol>
+  <symbol id="i-piggy" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="12" y="32" width="6" height="9" rx="3" fill="#FF9CBF"/><rect x="29" y="32" width="6" height="9" rx="3" fill="#FF9CBF"/><path d="M13 12L11 4l8 5Z" fill="#FF9CBF"/><ellipse cx="23" cy="24" rx="18" ry="14" fill="#FFBCD6"/><rect x="18" y="9.5" width="10" height="3" rx="1.5" fill="#2D2A4A" stroke="none"/><ellipse cx="41" cy="25" rx="5" ry="4.6" fill="#FF9CBF" stroke-width="2.4"/><circle cx="31" cy="20" r="1.9" fill="#2D2A4A" stroke="none"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M24 5l5.6 12 13 1.4-9.8 8.8 2.8 12.8L24 33.4 12.4 40l2.8-12.8L5.4 18.4l13-1.4Z" fill="#FFE17A"/><circle cx="20" cy="25" r="1.6" fill="#2D2A4A" stroke="none"/><circle cx="28" cy="25" r="1.6" fill="#2D2A4A" stroke="none"/></g></symbol>
+  <symbol id="i-lock" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M15 21v-5a9 9 0 0 1 18 0v5"/><rect x="9" y="20" width="30" height="21" rx="7" fill="#FFE17A"/><circle cx="24" cy="28" r="3" fill="#2D2A4A" stroke="none"/><path d="M24 30v4"/></g></symbol>
+  <symbol id="i-bell" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M12 34c3-3 3-8 3-13a9 9 0 0 1 18 0c0 5 0 10 3 13Z" fill="#FFE17A"/><path d="M20 38a4 4 0 0 0 8 0"/><path d="M7 16c0-4 2-7 4-9M41 16c0-4-2-7-4-9" stroke-width="2.5"/></g></symbol>
+  <symbol id="i-kids" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="17" cy="28" r="10" fill="#FFE0CF"/><circle cx="31" cy="21" r="10" fill="#D6ECFF"/><circle cx="14" cy="28" r="1.6" fill="#2D2A4A" stroke="none"/><circle cx="20" cy="28" r="1.6" fill="#2D2A4A" stroke="none"/><circle cx="28" cy="21" r="1.6" fill="#2D2A4A" stroke="none"/><circle cx="34" cy="21" r="1.6" fill="#2D2A4A" stroke="none"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="6" width="36" height="36" rx="11" fill="#9BE8C4"/><path d="M15 25l6 6 12-13" stroke-width="4"/></g></symbol>
+  <symbol id="i-no" viewBox="0 0 48 48"><g fill="none" stroke="#2D2A4A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="6" width="36" height="36" rx="11" fill="#FFDCEB"/><path d="M17 17l14 14M31 17L17 31" stroke-width="3.6"/></g></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="favicon.svg" alt="" width="34" height="34">Task4Coin</a>
+    <nav class="nav">
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#piani">Piani</a>
+      <a href="#domande">Domande</a>
+      <a class="btn small primary" href="#piani">Provala gratis</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">App per famiglie · 6-14 anni</span>
+      <h1>I lavoretti di casa<br>diventano <em>paghetta</em></h1>
+      <p class="claim">Tu assegni le missioni con un premio in coin. Loro le completano, risparmiano
+        e capiscono quanto vale un'ora di lavoro.</p>
+      <div class="azioni">
+        <a class="btn primary" href="#come-funziona">Guarda com'è fatta</a>
+        <a class="btn" href="#piani">Cosa c'è nel gratis</a>
+      </div>
+      <p class="nota">Presto su App Store e Google Play. I soldi veri li dai tu, l'app tiene solo il conto.</p>
+    </div>
+    <div class="hero-art">
+      <svg class="coin-fluttua" aria-hidden="true"><use href="#i-coin"/></svg>
+      <img class="telefono dietro" src="immagini/schermo-genitore.png" width="770" height="1706"
+           alt="La home del genitore: missioni da approvare e saldo dei bambini">
+      <img class="telefono avanti" src="immagini/schermo-bambino.png" width="770" height="1706"
+           alt="La home del bambino: i suoi coin, l'obiettivo di risparmio e le missioni di oggi">
+    </div>
+  </div>
+</section>
+
+<div class="fatti">
+  <div class="wrap">
+    <div><b>Zero</b><span>pubblicità nella vista del bambino, bloccata nel codice</span></div>
+    <div><b>Nome e avatar</b><span>gli unici dati del bambino: niente email, foto o posizione</span></div>
+    <div><b>2 tocchi</b><span>per cancellare tutta la famiglia, subito e davvero</span></div>
+  </div>
+</div>
+
+<section id="come-funziona">
+  <div class="wrap">
+    <span class="eyebrow">Come funziona</span>
+    <h2>Tre passi, e la paghetta ha una regola</h2>
+    <p>Niente bonifici, niente carte intestate a un minore. L'app tiene il conto di quello che ha
+      guadagnato, tu consegni i contanti quando vi siete messi d'accordo.</p>
+
+    <div class="passi">
+      <article class="passo rivela">
+        <div class="n">1</div>
+        <h3>Crei la famiglia</h3>
+        <p>Scegli la valuta e quanto vale un coin. Il bambino entra con nome e avatar: nessuna email,
+          nessuna password.</p>
+        <img class="telefono" src="immagini/schermo-famiglia.png" width="856" height="1776" alt="Creazione della famiglia: nome, valuta e quanto vale un coin">
+      </article>
+      <article class="passo rivela">
+        <div class="n">2</div>
+        <h3>Assegni le missioni</h3>
+        <p>Premio in coin, ricorrenza e scadenza. Lui segna «Fatto!», tu approvi e i coin entrano
+          nel suo saldo.</p>
+        <img class="telefono" src="immagini/schermo-nuova-missione.png" width="760" height="1738" alt="Creazione di una missione: premio in coin, ricorrenza e scadenza">
+      </article>
+      <article class="passo rivela">
+        <div class="n">3</div>
+        <h3>I coin diventano soldi</h3>
+        <p>Chiede la conversione, tu approvi e consegni. Quello che mette da parte resta nel
+          salvadanaio, con un obiettivo davanti.</p>
+        <img class="telefono" src="immagini/schermo-converti.png" width="740" height="1658" alt="Conversione dei coin in euro, da approvare">
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper);border-top:var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">Dentro l'app</span>
+    <h2>Fatta per chi non ha tempo di fare il contabile</h2>
+
+    <div class="bento">
+      <div class="box grande rivela">
+        <svg aria-hidden="true"><use href="#i-piggy"/></svg>
+        <h3>Il salvadanaio con un obiettivo</h3>
+        <p>Il bambino sceglie cosa vuole comprare e vede quante settimane mancano al traguardo.
+          Il risparmio smette di essere un'astrazione.</p>
+        <img class="telefono" src="immagini/schermo-salvadanaio.png" width="740" height="1658" alt="Il salvadanaio con l'obiettivo «bici nuova» e le settimane che mancano">
+      </div>
+      <div class="box larga rivela">
+        <svg aria-hidden="true"><use href="#i-lock"/></svg>
+        <div>
+          <h3>Area genitore dietro un PIN</h3>
+          <p>Approvazioni, valore del coin, abbonamento e impostazioni stanno dietro quattro cifre.
+            Dalla parte del bambino non si compra niente e non si vede niente da comprare.</p>
+        </div>
+        <img class="telefono" src="immagini/schermo-approvazioni.png" width="770" height="1706"
+             alt="La coda delle approvazioni nell'area del genitore">
+      </div>
+      <div class="box mint rivela">
+        <svg aria-hidden="true"><use href="#i-star"/></svg>
+        <h3>Bonus e penalità</h3>
+        <p>Puntualità premiata, missione saltata scalata. Le regole le scrivi tu una volta sola.</p>
+      </div>
+      <div class="box pink rivela">
+        <svg aria-hidden="true"><use href="#i-kids"/></svg>
+        <h3>Aiutanti</h3>
+        <p>Nonni, tata, l'altro genitore: entrano con un QR e possono approvare anche loro.</p>
+      </div>
+      <div class="box rivela">
+        <svg aria-hidden="true"><use href="#i-bell"/></svg>
+        <h3>Promemoria</h3>
+        <p>Una notifica quando una missione scade o quando c'è qualcosa da approvare.</p>
+      </div>
+      <div class="box rivela">
+        <svg aria-hidden="true"><use href="#i-coin"/></svg>
+        <h3>Il cambio lo decidi tu</h3>
+        <p>Un coin può valere 10 centesimi o un euro. Cambi il tasso quando cresce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="piani" style="border-top:var(--line);background:#FBF8FF">
+  <div class="wrap">
+    <h2>Gratis funziona davvero</h2>
+    <p>Missioni, coin, obiettivi e approvazioni ci sono tutti anche senza pagare. Il Pro toglie la
+      pubblicità dalla tua parte e alza i limiti della famiglia.</p>
+
+    <div class="piani">
+      <div class="piano rivela">
+        <h3>Gratis</h3>
+        <p class="prezzo">Per sempre, senza carta</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Missioni, coin, salvadanaio, approvazioni</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Fino a 2 bambini e 1 aiutante</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> 26 icone missione, 15 avatar</li>
+          <li><svg aria-hidden="true"><use href="#i-no"/></svg> <s>Pubblicità nell'area del genitore</s></li>
+        </ul>
+      </div>
+      <div class="piano pro rivela">
+        <h3>Task4Coin Pro</h3>
+        <p class="prezzo">Mensile, 3 mesi o annuale. Si disdice dallo store, quando vuoi.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Tutto quello che c'è nel gratis</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Nessun limite di bambini, fino a 5 aiutanti</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Nessuna pubblicità, nemmeno per te</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> 36 icone missione, 21 avatar</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Vale per tutta la famiglia, paga uno solo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="privacy">
+  <div class="wrap">
+    <svg aria-hidden="true"><use href="#i-lock"/></svg>
+    <div>
+      <h2>Di tuo figlio sappiamo un nome e un avatar</h2>
+      <p>Li scegli tu, e possono essere di fantasia. Non chiediamo un'email al bambino, non gli
+        facciamo vedere pubblicità e non gli vendiamo niente. Quello che ci dai lo puoi portare via
+        in qualsiasi momento: cancelli la famiglia dall'app e sparisce dal database, non «entro 30 giorni».</p>
+      <div class="no">
+        <span>niente email del bambino</span>
+        <span>niente foto</span>
+        <span>niente posizione</span>
+        <span>niente profilazione</span>
+        <span>niente denaro vero in app</span>
+      </div>
+      <p style="margin-top:22px"><a href="privacy.html">Informativa privacy</a> · <a href="termini.html">Termini di servizio</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="domande">
+  <div class="wrap">
+    <h2>Quello che chiedono tutti</h2>
+    <div class="faq">
+      <details open>
+        <summary>L'app muove soldi veri?</summary>
+        <p>No. Non ci sono conti, carte o bonifici: Task4Coin tiene il conto di quanto ha guadagnato
+          tuo figlio, i contanti glieli dai tu quando la conversione è approvata.</p>
+      </details>
+      <details>
+        <summary>Mio figlio deve avere un account?</summary>
+        <p>No. L'account è solo tuo. Il bambino entra dal tuo telefono o dal suo con un codice, e di
+          lui restano un nome e un avatar.</p>
+      </details>
+      <details>
+        <summary>I bambini vedono pubblicità?</summary>
+        <p>Mai. La pubblicità esiste solo nell'area del genitore, protetta dal PIN, e con il Pro
+          sparisce anche da lì.</p>
+      </details>
+      <details>
+        <summary>Funziona con genitori separati o con i nonni?</summary>
+        <p>Sì. Gli altri adulti entrano come aiutanti con un QR: creano e approvano le missioni come
+          te. Uno nel gratis, cinque con il Pro.</p>
+      </details>
+      <details>
+        <summary>Se smetto di pagare il Pro perdo i dati?</summary>
+        <p>No, non si cancella niente. Restano i bambini e le missioni che hai già: non puoi
+          aggiungerne di nuovi oltre i limiti del gratis finché non riattivi.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="chiusura">
+  <div class="wrap">
+    <h2>La paghetta con una regola in mezzo</h2>
+    <p>Task4Coin arriva presto su App Store e Google Play. Scrivici se vuoi provarla prima.</p>
+    <a class="btn primary" href="mailto:rothsthegame@gmail.com?subject=Task4Coin">Scrivici</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="privacy.html">Privacy</a>
+    <a href="termini.html">Termini</a>
+    <a href="supporto.html">Supporto</a>
+    <p>Task4Coin · Robert Crivat Florian · rothsthegame@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
